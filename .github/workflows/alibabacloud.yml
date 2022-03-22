@@ -21,7 +21,7 @@ jobs:
         env:
           SSH_PRIVATE_KEY: ${{ secrets.ACCESS_TOKEN }}
           ARGS: "-avz --delete"
-          SOURCE: "/root/covid-model"
+          SOURCE: "./"
           REMOTE_HOST: "47.108.210.141"
           REMOTE_USER: "root"
-          TARGET: "[Server Dir]"
+          TARGET: "/root/covid-model"
