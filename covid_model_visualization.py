@@ -33,10 +33,10 @@ line_charts = ChartModule(series = [
     {'Label': '死亡人群', 'Color': 'black', 'Filled': 'false'},
     {'Label': '痊愈及免疫人群', 'Color': '#6C6', 'Filled': 'false'}])
 
-server = ModularServer(CovidModel, [grid, line_charts], '新冠肺炎传播模拟', model_params,  default=8521)
+server = ModularServer(CovidModel, [grid, line_charts], '新冠肺炎传播模拟', model_params)
 
 parser = argparse.ArgumentParser(description='Test for argparse')
-parser.add_argument('--port', '-n', help='name 端口，非必要参数')
+parser.add_argument('--port', '-n', help='name 端口，非必要参数', default=8521)
 args = parser.parse_args()
 
 if __name__ == '__main__':
