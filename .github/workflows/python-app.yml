@@ -1,0 +1,9 @@
+- name: copy file via ssh key
+  uses: appleboy/scp-action@master
+  with:
+    host: ${{ secrets.HOST }}
+    username: "root"
+    port: 22
+    key: ${{ secrets.ACCESS_TOKEN }}
+    source: "./"
+    target: "/root/covid-model"
