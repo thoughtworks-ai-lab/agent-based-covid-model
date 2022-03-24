@@ -35,11 +35,10 @@ model_params = {
 }
 
 
-# Agent class in Mesa
+# 重载智能体类中的方法
 # -------------------------------------------------------------------------------------------
 class Agent(Agent):
-    """Agents in the CovidModel class below"""
-    
+
     def __init__(self, unique_id, model):
         super().__init__(unique_id, model)
         self.masked = bool(ss.bernoulli.rvs(self.model.perc_masked))
@@ -101,9 +100,11 @@ class Agent(Agent):
             self.immunity_countdown = self.immunity_countdown - 1
 
     def update_lockdown(self):
+        # If lockdown enabled, the movement of infected agent will be limited
         if (not self.infected | self.immune) or self.model.isolation_enabled == '否':
             self.lockdown = False
         else:
+            # the probability 0.9 is a empiric parameter
             self.lockdown = bool(ss.bernoulli.rvs(0.9))
 
     def step(self):

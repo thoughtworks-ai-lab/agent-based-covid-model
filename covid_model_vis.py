@@ -10,10 +10,6 @@ def agent_portrayal(agent):
         'r': 0.6,
         'Color': '#66F'}
 
-    # (Un)masked agents show up as (non-)filled circles
-    # if agent.masked == True:
-    #     portrayal['Filled'] = 'true'
-
     if agent.infected == True:
         portrayal['Color'] = '#F66'
 
